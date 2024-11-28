@@ -108,7 +108,7 @@ function confirmCategory() {
 
 // Logout Functionality
 function logout() {
-  window.location.href = "../index.html";
+  window.location.href = "../../index.html";
 }
 
 // Dropdown Menu
