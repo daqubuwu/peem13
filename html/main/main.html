@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CashBandicut</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img
+            src="/svg/sasal-cropped.svg"
+            alt="CashBandicut"
+            style="width: 200px; height: auto"
+          />
+        </div>
+        <div class="plans">
+          <button class="plan active">Дорогой план</button>
+          <button class="plan">Средний план</button>
+          <button class="plan">Маленький план</button>
+        </div>
+        <div class="user" onclick="toggleMenu()">
+          <div class="user-inner" style="background-color: #e84118"></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h2 class="month-title" id="monthTitle" onclick="openMonthModal()">
+        Февраль
+      </h2>
+
+      <div class="circle-container">
+        <div class="category-left">
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Развлечения</h3>
+              <p>4659.00</p>
+            </div>
+          </div>
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Еда</h3>
+              <p>3200.00</p>
+            </div>
+          </div>
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Транспорт</h3>
+              <p>1500.00</p>
+            </div>
+          </div>
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Транспорт</h3>
+              <p>1500.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="circle-and-balance">
+          <div class="circle">
+            <div class="circle-inner">
+              <h3 class="circle-total">10420,50 Р</h3>
+              <h2 class="circle-total">11760,75 Р</h2>
+              <p class="circle-limit">
+                Лимит расходов на месяц: <span>45.000</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="balance">
+            <p class="balance-amount">10 420,50 Р</p>
+            <div class="balance-controls">
+              <button
+                class="balance-btn"
+                id="addMoney"
+                onclick="openAddMoneyModal()"
+              >
+                Пополнить
+              </button>
+              <button
+                class="balance-btn"
+                id="removeMoney"
+                onclick="openRemoveMoneyModal()"
+              >
+                Снять
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-right">
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Развлечения</h3>
+              <p>4659.00</p>
+            </div>
+          </div>
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Еда</h3>
+              <p>3200.00</p>
+            </div>
+          </div>
+          <div class="category">
+            <div class="category-icon">
+              <img src="/svg/list-check.svg" alt="entertainment" />
+            </div>
+            <div class="category-info">
+              <h3>Транспорт</h3>
+              <p>1500.00</p>
+            </div>
+          </div>
+          <div class="category add-category" onclick="openNewCategoryModal()">
+            <span class="plus-icon">+</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="column">
+          <h3>Разработчик</h3>
+          <p>Денис Филатов</p>
+        </div>
+        <div class="column">
+          <h3>О нас</h3>
+          <p>Сертификация</p>
+        </div>
+        <div class="column">
+          <h3>Поддержка</h3>
+          <p>Почта</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for Adding Money -->
+    <div id="addMoneyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('addMoneyModal')">&times;</span>
+        <h2>Пополнение баланса</h2>
+        <input
+          type="number"
+          id="addMoneyInput"
+          placeholder="Введите сумму пополнения"
+        />
+        <button id="confirmAddMoney" onclick="confirmAddMoney()">
+          Подтвердить
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal for Removing Money -->
+    <div id="removeMoneyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('removeMoneyModal')"
+          >&times;</span
+        >
+        <h2>Снятие средств</h2>
+        <input
+          type="number"
+          id="removeMoneyInput"
+          placeholder="Введите сумму снятия"
+        />
+        <button id="confirmRemoveMoney" onclick="confirmRemoveMoney()">
+          Подтвердить
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal for Changing Month -->
+    <div id="monthModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('monthModal')">&times;</span>
+        <h2>Выберите месяц</h2>
+        <select id="monthSelect">
+          <option value="Январь">Январь</option>
+          <option value="Февраль">Февраль</option>
+          <option value="Март">Март</option>
+          <option value="Апрель">Апрель</option>
+          <option value="Май">Май</option>
+          <option value="Июнь">Июнь</option>
+          <option value="Июль">Июль</option>
+          <option value="Август">Август</option>
+          <option value="Сентябрь">Сентябрь</option>
+          <option value="Октябрь">Октябрь</option>
+          <option value="Ноябрь">Ноябрь</option>
+          <option value="Декабрь">Декабрь</option>
+        </select>
+        <button id="confirmMonth" onclick="confirmMonth()">Подтвердить</button>
+      </div>
+    </div>
+
+    <!-- Modal for Adding New Category -->
+    <div id="newCategoryModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('newCategoryModal')"
+          >&times;</span
+        >
+        <h2>Новая категория</h2>
+
+        <div class="details-container">
+          <div class="details-input">
+            <label for="categorySelect">Категория:</label>
+            <select id="categorySelect">
+              <option value="Развлечения">Развлечения</option>
+              <option value="Еда">Еда</option>
+              <option value="Транспорт">Транспорт</option>
+            </select>
+          </div>
+
+          <div class="details-input">
+            <label for="subcategorySelect">Подкатегория:</label>
+            <select id="subcategorySelect">
+              <option value="Кино">Кино</option>
+              <option value="Ресторан">Ресторан</option>
+              <option value="Продукты">Продукты</option>
+              <option value="Бензин">Бензин</option>
+            </select>
+          </div>
+
+          <div class="details-input">
+            <input type="checkbox" id="permanentMode" />
+            <label for="permanentMode">Постоянный режим</label>
+          </div>
+
+          <div class="income-expense-select">
+            <button
+              class="income-expense-btn active"
+              id="incomeBtn"
+              onclick="selectIncome()"
+            >
+              Доход
+            </button>
+            <button
+              class="income-expense-btn"
+              id="expenseBtn"
+              onclick="selectExpense()"
+            >
+              Расход
+            </button>
+          </div>
+
+          <div class="details-input" id="detailsInput" style="display: flex">
+            <div class="details-input">
+              <label for="amountInput">Сумма:</label>
+              <input
+                type="number"
+                id="amountInput"
+                placeholder="Введите сумму"
+              />
+            </div>
+            <div class="details-input">
+              <label for="dateInput">Дата:</label>
+              <input type="date" id="dateInput" />
+            </div>
+            <div class="details-input">
+              <label for="descriptionInput">Описание:</label>
+              <textarea
+                id="descriptionInput"
+                placeholder="Введите описание"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button id="confirmCategoryBtn" onclick="confirmCategory()">
+          Подтвердить
+        </button>
+      </div>
+    </div>
+    <div id="menu" class="menu" style="display: none">
+      <ul>
+        <li onclick="logout()"><a href="#">Выход</a></li>
+      </ul>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
