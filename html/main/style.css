@@ -14,6 +14,15 @@ header {
   align-items: center;
 }
 
+p {
+  padding: auto;
+  margin: auto;
+}
+
+h3 {
+  margin: auto;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -39,10 +48,6 @@ header {
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.plan.active {
-  background-color: #e84118;
 }
 
 .user {
@@ -132,8 +137,11 @@ header {
 }
 
 .category-info {
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+}
+
+.category-info p {
+  text-align: left;
 }
 
 .circle-and-balance {
@@ -158,11 +166,6 @@ header {
   text-align: center;
   border-radius: 5px;
   margin-top: 90px;
-}
-
-.balance-amount {
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .balance-controls {
@@ -206,24 +209,25 @@ footer {
 
 /* Modal styles */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; /* Окно фиксировано на экране */
+  z-index: 1000; /* Поверх других элементов */
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Включает прокрутку, если необходимо */
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  text-align: center;
+  background-color: #fefefe; /* Цвет фона модального окна */
+  margin: 15% auto; /* Отступ сверху и центрирование */
+  padding: 20px; /* Внутренние отступы */
+  border: 1px solid #888; /* Граница */
+  width: 80%; /* Ширина модального окна */
+  max-width: 500px; /* Максимальная ширина */
+  border-radius: 5px; /* Закругленные углы */
 }
 
 .close {
@@ -315,25 +319,6 @@ footer {
   color: white;
 }
 
-.category-select,
-.subcategory-select {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-.category-select label,
-.subcategory-select label {
-  margin-bottom: 5px;
-}
-
-.category-select select,
-.subcategory-select select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 /* Category Styling */
 .category {
   margin-bottom: 20px;
@@ -374,4 +359,16 @@ footer {
 .menu a {
   color: #333;
   text-decoration: none;
+}
+
+.plan.active {
+  background-color: #e84118;
+  color: white;
+}
+
+.delete-icon {
+  cursor: pointer; /* Указатель при наведении */
+  color: red; /* Цвет крестика */
+  font-size: 20px; /* Размер шрифта */
+  margin-left: 10px; /* Отступ слева */
 }

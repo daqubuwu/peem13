@@ -61,7 +61,30 @@
         .getElementById("registerBtn")
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default form submission
-          window.location.href = "login.html"; // Redirect to login page
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const passwordConfirm =
+            document.getElementById("passwordConfirm").value;
+
+          // Проверка на совпадение паролей
+          if (password !== passwordConfirm) {
+            alert("Пароли не совпадают!");
+            return;
+          }
+
+          // Сохранение данных пользователя в localStorage
+          const userData = {
+            name: name,
+            email: email,
+            password: password,
+          };
+
+          localStorage.setItem("user", JSON.stringify(userData));
+
+          // Перенаправление на страницу входа
+          window.location.href = "login.html";
         });
     </script>
   </body>
