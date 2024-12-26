@@ -61,7 +61,7 @@ h3 {
 .user-inner {
   width: 100%;
   height: 100%;
-  background-color: #e84118;
+  background-image: "../../svg/logout.png";
 }
 
 .month-title {
@@ -294,6 +294,11 @@ footer {
 .details-input {
   display: flex;
   flex-direction: column;
+}
+
+.perm {
+  display: flex;
+  flex-direction: row;
 }
 
 .details-input label {
