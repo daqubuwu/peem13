@@ -259,8 +259,8 @@ planButtons.forEach((button) => {
 
 // Sample user data (this could come from a server or user input)
 const user = {
-  name: "den den",
-  email: "123",
+  name: "Denis",
+  email: "Denis@gmail.com",
 };
 
 // Function to display user information
